@@ -1,4 +1,4 @@
-e(ns homiebot.commands.ask
+(ns homiebot.commands.ask
    (:require [cheshire.core :as json]
              [clj-http.client :as client]
              [discljord.messaging   :as m]

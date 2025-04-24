@@ -11,8 +11,7 @@
   (let [resp (pyjama.core/ollama
               "http://localhost:11434/"
               :chat
-              {:system "you are the ancient greek philosoher socrates."
-               :model "uncensored-deep"
+              {:model "uncensored-deep"
                :stream false
                :options {:num_ctx 4096}
                :messages [{:role :user

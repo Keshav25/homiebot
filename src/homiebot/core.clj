@@ -8,7 +8,7 @@
 
 (use '[homiebot.commands.mention :as mention])
 (use '[homiebot.commands.ask :as ask])
-
+(use '[homiebot.commands.astro :as astro])
 (use '[homiebot.state :as state])
 
 (def config (edn/read-string (slurp "config.edn")))
@@ -42,7 +42,11 @@
   (discord-ws/disconnect-bot! gateway)
   (close! events))
 
-(def handlers {:message-create [#'mention/mention-handler #'ask/ask-handler]})
+(def handlers {:message-create [#'mention/mention-handler
+                                #'ask/ask-handler
+                                #'astro/astro-handler
+                                ]})
+
 
 (defn -main [& args]
   (reset! state (start-bot! (:token config) :guilds :guild-messages))
